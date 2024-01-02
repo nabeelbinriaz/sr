@@ -52,7 +52,7 @@ op.add_argument("--headless")
 op.add_argument("--disable-dev-shm-usage")
 op.add_argument("--no-sandbox")
 def scraping_reviews(url):
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install())chrome_options=op)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=op)
     
     
     all_reviews = []
@@ -98,7 +98,7 @@ async def scrape_reviewsss(request: SearchRequest):
     score=[]
  
     
-    driver = webdriver.Chrome( chrome_options=op)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=op)
 
     driver.get(urls)
     page_source = driver.page_source
@@ -264,7 +264,7 @@ async def scrape_reviewsss(request: SearchRequest):
    
 @app.post("/scrape_trustpilot/")
 async def scrape_reviewss(request: ScrapingRequest):
-    driver = webdriver.Chrome(chrome_options=op)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=op)
     score=[]
     all_reviews = []
     all_headings = []
