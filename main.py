@@ -15,6 +15,7 @@ from collections import Counter
 from fastapi.responses import HTMLResponse
 from typing import Dict
 import os
+from webdriver_manager.chrome import ChromeDriverManager
 classifier = pipeline('sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment')
 app = FastAPI()
 app.add_middleware(
@@ -51,7 +52,7 @@ op.add_argument("--headless")
 op.add_argument("--disable-dev-shm-usage")
 op.add_argument("--no-sandbox")
 def scraping_reviews(url):
-    driver = webdriver.Chrome( chrome_options=op)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install())chrome_options=op)
     
     
     all_reviews = []
