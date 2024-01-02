@@ -1,8 +1,9 @@
 fastapi
 pydantic
-selenium == 3.6.0
+selenium == 4.6.0
 beautifulsoup4
 transformers
 plotly
 uvicorn
 torch
+webdriver-manager == 3.8.4
