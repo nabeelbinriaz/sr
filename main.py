@@ -47,7 +47,6 @@ class ScrapingResponse(BaseModel):
 class InputURL(BaseModel):
     url: str
 op = webdriver.ChromeOptions()
-op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 op.add_argument("--headless")
 op.add_argument("--disable-dev-shm-usage")
 op.add_argument("--no-sandbox")
